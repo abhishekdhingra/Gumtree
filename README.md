@@ -13,7 +13,7 @@ NOTE- If tests are not getting identified in the Visual studio Test explorer the
 
 ### Framework design features:
 1. The framework will execute the automated tests in parellel defined in multiple feature files.
-2. The automated tests runusing chrome browser only. But code is structured to include other browsers if required later on.
+2. The automated tests runu sing chrome browser only. But code is structured to include other browsers if required.
 3. The application url, selenium wait time and browser type is configured in the App.config file.
 
 ### Executing Using Visual Studio
