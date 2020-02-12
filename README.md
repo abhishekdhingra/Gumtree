@@ -13,7 +13,8 @@ NOTE- If tests are not getting identified in the Visual studio Test explorer the
 
 ### Framework design features:
 1. The framework will execute the automated tests in parellel defined in multiple feature files.
-2. The automated tests runu sing chrome browser only. But code is structured to include other browsers if required.
+Please NOTE- On top of what was mentioned in the assignment I have written additional automated test. Both the tests will execute in parallel (Right click on Gumtree which is at the root in the Test Explorer and click Run selected tests).
+2. The automated tests run using chrome browser only. But code is structured to include other browsers if required.
 3. The application url, selenium wait time and browser type is configured in the App.config file.
 
 ### Executing Using Visual Studio
