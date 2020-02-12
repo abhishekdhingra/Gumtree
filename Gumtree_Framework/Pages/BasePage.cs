@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,7 @@ namespace Gumtree.Pages
                     element.Clear();
                 }
                 element.SendKeys(text);
+                Assert.AreEqual(element.GetAttribute("value").ToLower(), text.ToLower(), "Input text- " + text + " was NOT entered correctly..");
             }
             catch (NoSuchElementException)
             {

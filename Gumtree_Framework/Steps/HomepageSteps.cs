@@ -22,11 +22,12 @@ namespace Gumtree.Steps
             _homePage.NavigateToGumtreeUrl();
         }
 
-        [StepDefinition(@"I search for the search term ""(.*)""")]
-        public void WhenISearchForTheSearchTerm(string SearchTerm)
+        [StepDefinition(@"I search for the item using the below specfications")]
+        public void WhenISearchForTheItemUsingTheBelowSpecfications(Table searchDetails)
         {
-            _homePage.SearchItem(SearchTerm);
+            _homePage.SearchItem(searchDetails);
         }
+
 
         [StepDefinition(@"the number of products on displayed should be same as the label showing the count")]
         public void ThenTheNumberOfProductsOnDisplayedShouldBeSameAsTheLabelShowingTheCount()

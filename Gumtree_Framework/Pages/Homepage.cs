@@ -5,12 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Gumtree.Pages
 {
     public class Homepage : BasePage
     {
         private IWebElement _inputSearchItem => FindElementByCssSelector("input#search-query");
+        private IWebElement _inputSearchArea => FindElementByCssSelector("input#search-area");
+        private IWebElement _spanSearchRange => FindElementByCssSelector(" span#srch-radius-input");
+        private IWebElement _liSearchRange(string kmRange) => FindElementByXpath("//div[@id='srch-radius-wrpwrapper']//ul//li[.='"+kmRange+"']");
         private IWebElement _btnSearchItem => FindElementByCssSelector("button.header__search-button");
         private IList<IWebElement> _divSearchResults => FindElementsByCssSelector("div.search-results-page__main-ads-wrapper a.user-ad-row");
         private IWebElement _selectDisplayCount => FindElementByCssSelector("div.results-per-page-selector select");
@@ -27,9 +31,13 @@ namespace Gumtree.Pages
             WaitForDocumentReady();
         }
 
-        public void SearchItem(string SearchTerm)
+        public void SearchItem(Table table)
         {
-            ClearAndSendKeys(_inputSearchItem, SearchTerm);
+            dynamic credentials = table.CreateDynamicInstance();
+            ClearAndSendKeys(_inputSearchItem, credentials.Item);
+            ClearAndSendKeys(_inputSearchArea, credentials.Area);
+            ClickElement(_spanSearchRange);
+            ClickElement(_liSearchRange(credentials.Range));
             ClickElement(_btnSearchItem);
             WaitForDocumentReady();
         }

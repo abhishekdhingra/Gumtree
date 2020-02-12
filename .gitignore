@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Gumtree_Framework
+/.vs/*
 /Gumtree_Framework/bin/Debug
 /Gumtree_Framework/obj/*
 /Gumtree_Framework/Features/*/*.feature.cs
