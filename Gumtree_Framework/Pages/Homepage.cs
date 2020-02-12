@@ -11,6 +11,8 @@ namespace Gumtree.Pages
 {
     public class Homepage : BasePage
     {
+        private IWebElement _divCategoryItem => FindElementByCssSelector("div#categoryId-wrp");
+        private IWebElement _liCategoryName(string categoryName) => FindElementByXpath("//div[@id='categoryId-wrpwrapper']//ul//li[contains(.,'"+categoryName+"')]");
         private IWebElement _inputSearchItem => FindElementByCssSelector("input#search-query");
         private IWebElement _inputSearchArea => FindElementByCssSelector("input#search-area");
         private IWebElement _spanSearchRange => FindElementByCssSelector(" span#srch-radius-input");
@@ -34,6 +36,8 @@ namespace Gumtree.Pages
         public void SearchItem(Table table)
         {
             dynamic credentials = table.CreateDynamicInstance();
+            ClickElement(_divCategoryItem);
+            ClickElement(_liCategoryName(credentials.Category));
             ClearAndSendKeys(_inputSearchItem, credentials.Item);
             ClearAndSendKeys(_inputSearchArea, credentials.Area);
             ClickElement(_spanSearchRange);

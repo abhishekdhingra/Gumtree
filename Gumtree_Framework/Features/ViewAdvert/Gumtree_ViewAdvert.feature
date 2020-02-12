@@ -6,8 +6,8 @@ Background:
 
 Scenario: Verify if user is able to search and view the advertisement successfully
 	When I search for the item using the below specfications
-	| Item   | Area       | Range |
-	| Toyota | Wollongong | 250km |
+	| Category        | Item | Area | Range |
+	| Cars & Vehicles | Toyota | Wollongong | 250km |
 	Then the number of products on displayed should be same as the label showing the count
 	When I click the the below page numbers
 	| page number |
